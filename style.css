@@ -1,29 +1,80 @@
+:root {
+    --bg: #f0f0f0;
+    --container-bg: #ffffff;
+    --text: #333333;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --ball-bg: #007bff;
+    --ball-color: #ffffff;
+    --btn-bg: #007bff;
+    --btn-color: #ffffff;
+    --theme-btn-bg: #e0e0e0;
+    --theme-btn-color: #333333;
+}
+
+body.dark {
+    --bg: #1a1a2e;
+    --container-bg: #16213e;
+    --text: #e0e0e0;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --ball-bg: #4a9eff;
+    --ball-color: #ffffff;
+    --btn-bg: #4a9eff;
+    --btn-color: #ffffff;
+    --theme-btn-bg: #2d2d4e;
+    --theme-btn-color: #e0e0e0;
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+}
+
+.theme-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    background-color: var(--theme-btn-bg);
+    color: var(--theme-btn-color);
+    border-radius: 50px;
+    box-shadow: 0 2px 6px var(--shadow);
+    transition: background-color 0.3s, transform 0.1s;
+    z-index: 100;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
 }
 
 .container {
     text-align: center;
     padding: 2rem;
-    background-color: white;
+    background-color: var(--container-bg);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px var(--shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-button {
+button#generate {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
     border: none;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
     border-radius: 5px;
     margin-top: 1rem;
+    transition: background-color 0.3s;
 }
 
 #numbers {
@@ -32,4 +83,19 @@ button {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    flex-wrap: wrap;
+}
+
+#numbers span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--ball-bg);
+    color: var(--ball-color);
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s;
 }
